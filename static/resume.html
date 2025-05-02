@@ -1,61 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe's Resume</title>
-    <link rel="stylesheet" href="/static/css/style.css"> <!-- Link to external CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Naneishvili | Back‑End Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text: #000;
+      --bg: #fff;
+      --accent: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-top: -0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    header nav {
+      margin-top: 0.75rem;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    header nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--accent);
+      transition: opacity 0.2s ease;
+    }
+
+    header nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* ---------- Profile ---------- */
+    .profile-img {
+      display: block;
+      width: 220px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin: 0 auto 3rem;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .titles {
+      font-weight: 700;
+    }
+
+    .experience-item,
+    .project-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 600px) {
+      .experience-grid {
+        column-gap: 2rem;
+      }
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>John Doe</h1>
-            <p class="title">Software Developer</p>
-            <p>johndoe@example.com | +123456789 | linkedin.com/in/johndoe</p>
+  <header>
+    <div>
+      <h1>DAVID NANEISHVILI</h1>
+      <p class="subtitle">Back‑End Developer</p>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home">
+    <img src="profile.jpg" alt="John Doe headshot" class="profile-img" />
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a back‑end developer with 5 years of experience specializing in
+        server‑side technologies and database management.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="experience-item experience-grid">
+        <div>
+          <p class="titles">Senior Back‑End Developer</p>
+          <p>Company A</p>
         </div>
-    </header>
+        <p>2019 – Present</p>
+      </div>
 
-    <main>
-        <section class="container">
-            <h2>Experience</h2>
-            <div class="job">
-                <h3>Senior Software Engineer</h3>
-                <p><strong>Company XYZ</strong> — March 2020 - Present</p>
-                <ul>
-                    <li>Developed and maintained web applications using Go and React</li>
-                    <li>Collaborated with cross-functional teams to deliver features</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Software Developer</h3>
-                <p><strong>Company ABC</strong> — June 2016 - February 2020</p>
-                <ul>
-                    <li>Built backend services for e-commerce applications using Go</li>
-                    <li>Optimized database queries to improve application performance</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2>Education</h2>
-            <p><strong>XYZ University</strong> — Bachelor of Science in Computer Science (2016)</p>
-        </section>
-
-        <section class="container">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages: Go, Python, JavaScript</li>
-                <li>Frameworks: React, Express</li>
-                <li>Tools: Docker, Kubernetes, Git</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>Last updated: March 2023</p>
+      <div class="experience-item experience-grid">
+        <div>
+          <p class="titles">Back‑End Developer</p>
+          <p>Company B</p>
         </div>
-    </footer>
+        <p>2017 – 2019</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project-item">
+        <p class="titles">Project One</p>
+        <p>Description of project one</p>
+      </div>
+
+      <div class="project-item">
+        <p class="titles">Project Two</p>
+        <p>Description of project two</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 John Doe. All rights reserved.</p>
+  </footer>
 </body>
 </html>
 
