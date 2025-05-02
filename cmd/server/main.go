@@ -13,9 +13,9 @@ import (
 )
 
 type AppConfig struct {
-	Debug     bool   `arg:"--debug" help:"Enable debug mode"`
-	Port      int    `arg:"--port" help:"Specify what port to run in"`
-	StaticDir string `arg:"--static" help:"Specify static path"`
+	Debug     bool   `arg:"--debug,env:DEBUG" help:"Enable debug mode"`
+	Port      int    `arg:"--port,env:PORT" help:"Specify what port to run in"`
+	StaticDir string `arg:"--static,env:STATIC_DIR" help:"Specify static path"`
 }
 
 func main() {
