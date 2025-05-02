@@ -1,74 +1,117 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
+    :root {
+      --text: #000;
+      --bg: #fff;
+      --accent: #000;
+    }
 
-h1, h2 {
-    color: #2c3e50;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    max-width: 1200px;
-}
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-header {
-    background-color: #3498db;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
+    header h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
 
-header h1 {
-    margin: 0;
-}
+    .subtitle {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-top: -0.75rem;
+      margin-bottom: 2rem;
+    }
 
-header .title {
-    font-size: 1.2rem;
-    font-weight: 400;
-}
+    .tag {
+      border-radius: 8px;
+    }
 
-header p {
-    font-size: 1rem;
-    font-weight: 300;
-}
+    header nav {
+      margin-top: 0.75rem;
+    }
 
-main {
-    padding: 20px 0;
-}
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
 
-h2 {
-    margin-bottom: 10px;
-    font-size: 1.6rem;
-}
+    header nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--accent);
+      transition: opacity 0.2s ease;
+    }
 
-.job {
-    margin-bottom: 30px;
-}
+    header nav a:hover {
+      opacity: 0.7;
+    }
 
-.job h3 {
-    font-size: 1.3rem;
-    color: #3498db;
-}
+    /* ---------- Profile ---------- */
+    .profile-img {
+      display: block;
+      width: 220px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin: 0 auto 3rem;
+    }
 
-footer {
-    background-color: #ecf0f1;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 30px;
-}
+    /* ---------- Sections ---------- */
+    section {
+      margin-bottom: 3rem;
+    }
 
-footer p {
-    font-size: 0.9rem;
-}
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
+    .titles {
+      font-weight: 700;
+    }
+
+    .experience-item,
+    .project-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 600px) {
+      .experience-grid {
+        column-gap: 2rem;
+      }
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }

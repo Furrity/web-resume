@@ -5,121 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Naneishvili | Back‑End Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --text: #000;
-      --bg: #fff;
-      --accent: #000;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
-    }
-
-    /* ---------- Header ---------- */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    header h1 {
-      font-size: clamp(2.5rem, 8vw, 6rem);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .subtitle {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-top: -0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    header nav {
-      margin-top: 0.75rem;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    header nav a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--accent);
-      transition: opacity 0.2s ease;
-    }
-
-    header nav a:hover {
-      opacity: 0.7;
-    }
-
-    /* ---------- Profile ---------- */
-    .profile-img {
-      display: block;
-      width: 220px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      margin: 0 auto 3rem;
-    }
-
-    /* ---------- Sections ---------- */
-    section {
-      margin-bottom: 3rem;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .titles {
-      font-weight: 700;
-    }
-
-    .experience-item,
-    .project-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .experience-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    @media (min-width: 600px) {
-      .experience-grid {
-        column-gap: 2rem;
-      }
-    }
-
-    /* ---------- Footer ---------- */
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-  </style>
+  <link href="/static/css/style.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -138,7 +24,7 @@
   </header>
 
   <main id="home">
-    <img src="profile.jpg" alt="John Doe headshot" class="profile-img" />
+    <img src="/static/img/photo.jpg" alt="Handsome Man Smiling" class="profile-img" />
 
     <section id="about">
       <h2>About Me</h2>
