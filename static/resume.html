@@ -23,51 +23,89 @@
     </nav>
   </header>
 
-  <main id="home">
-    <img src="/static/img/photo.jpg" alt="Handsome Man Smiling" class="profile-img" />
+<main id="home">
+  <img src="/static/img/photo.jpg" alt="David Naneishvili" class="profile-img" />
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a back‑end developer with 5 years of experience specializing in
-        server‑side technologies and database management.
-      </p>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a back-end developer with ~2.5 years of experience, working mostly with Python (Django, DRF) and Go. I build and maintain production services, CI/CD pipelines, and DevOps tooling. I work closely with frontend teams and product managers, take part in architecture decisions, and deploy fully containerized apps. Currently transitioning toward Go-based backend development and building my own resume site in Go.
+    </p>
+  </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
+<section id="experience">
+  <h2>Experience</h2>
 
-      <div class="experience-item experience-grid">
-        <div>
-          <p class="titles">Senior Back‑End Developer</p>
-          <p>Company A</p>
-        </div>
-        <p>2019 – Present</p>
+  <div class="experience-item">
+    <div class="experience-header">
+      <div class="experience-title">
+        <p class="titles">Backend Developer</p>
+        <p>GBOU DPO Moscow Center for Educational Practices</p>
       </div>
+      <p class="experience-period">Feb 2024 – Present</p>
+    </div>
+    <ul>
+      <li>Developed Django-based services (CRUD, Celery workers)</li>
+      <li>Wrote internal tools in Go (backup tool, proxy)</li>
+      <li>Managed CI/CD with GitHub Actions and Nginx configs</li>
+      <li>Participated in daily syncs with product and frontend teams</li>
+    </ul>
+  </div>
 
-      <div class="experience-item experience-grid">
-        <div>
-          <p class="titles">Back‑End Developer</p>
-          <p>Company B</p>
-        </div>
-        <p>2017 – 2019</p>
+  <div class="experience-item">
+    <div class="experience-header">
+      <div class="experience-title">
+        <p class="titles">Freelance Backend Developer</p>
+        <p>Private Client</p>
       </div>
-    </section>
+      <p class="experience-period">Jul 2023 – Feb 2024</p>
+    </div>
+    <ul>
+      <li>Built document-generation backend (Django, Celery)</li>
+      <li>Deployed full Dockerized stack with PostgreSQL</li>
+      <li>Used Telegram API, PDF generation</li>
+      <li>Managed full delivery pipeline on VPS</li>
+    </ul>
+  </div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="project-item">
-        <p class="titles">Project One</p>
-        <p>Description of project one</p>
+  <div class="experience-item">
+    <div class="experience-header">
+      <div class="experience-title">
+        <p class="titles">Senior Assistant (Django/Python)</p>
+        <p>School of Programmers</p>
       </div>
+      <p class="experience-period">Dec 2022 – Aug 2024</p>
+    </div>
+    <ul>
+      <li>Helped students debug Django and Python code</li>
+      <li>Reviewed and explained unfamiliar codebases</li>
+      <li>Mentored junior developers in backend development</li>
+    </ul>
+  </div>
+</section>
 
-      <div class="project-item">
-        <p class="titles">Project Two</p>
-        <p>Description of project two</p>
-      </div>
-    </section>
-  </main>
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-item">
+      <p class="titles">Go Backup Tool</p>
+      <p>CLI tool to automate PostgreSQL backups with compression, written in Go. CI-built and deployed to servers.</p>
+    </div>
+
+    <div class="project-item">
+      <p class="titles">Resume Site (WIP)</p>
+      <p>This site — built with a Go backend and Markdown transformer. Goal: showcase my backend + deployment skills to hiring teams.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:davnub@yandex.ru">davnub@yandex.ru</a></p>
+    <p>Telegram: <a href="https://t.me/david_gogievich" target="_blank">@david_gogievich</a></p>
+    <p>GitHub: <a href="https://github.com/Furrity" target="_blank">github.com/Furrity</a></p>
+    <p>LeetCode: <a href="https://leetcode.com/u/davidnaneishvili/" target="_blank">leetcode.com/u/davidnaneishvili</a></p>
+  </section>
+</main>
 
   <footer>
     <p>&copy; 2025 John Doe. All rights reserved.</p>

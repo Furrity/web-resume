@@ -92,15 +92,35 @@
       font-weight: 700;
     }
 
-    .experience-item,
-    .project-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .experience-grid {
+    .experience-header {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-title {
+      max-width: 70%;
+    }
+
+    .experience-period {
+      font-weight: 500;
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    .experience-item ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      list-style-type: disc;
+    }
+
+    .experience-item {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      /* light gray line */
     }
 
     @media (min-width: 600px) {
