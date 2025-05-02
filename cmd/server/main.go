@@ -13,8 +13,9 @@ import (
 )
 
 type AppConfig struct {
-	Debug bool `arg:"--debug" help:"Enable debug mode"`
-	Port  int  `arg:"--port" help:"Specify what port to run in"`
+	Debug     bool   `arg:"--debug" help:"Enable debug mode"`
+	Port      int    `arg:"--port" help:"Specify what port to run in"`
+	StaticDir string `arg:"--static" help:"Specify static path"`
 }
 
 func main() {
@@ -26,7 +27,7 @@ func main() {
 
 	r := mux.NewRouter()
 
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(args.StaticDir))))
 
 	// middleware
 	r.Use(middleware.IncrementStatsMiddleware(myApp.IncrementRequestCount))

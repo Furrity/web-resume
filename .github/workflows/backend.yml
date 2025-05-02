@@ -1,0 +1,56 @@
+name: Deploy Go Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'static/**'
+      - '.github/workflows/static.yml'
+      - '**.md'
+      - '**.txt'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      DEPLOY_PORT: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Build backend binary
+        run: |
+          GOOS=linux GOARCH=amd64 go build -o server ./cmd/server
+
+      - name: Copy binary to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          key: ${{ env.DEPLOY_KEY }}
+          port: ${{ env.DEPLOY_PORT }}
+          source: "server"
+          target: ${{ env.DEPLOY_PATH }}
+
+      - name: SSH to server (stub)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          key: ${{ env.DEPLOY_KEY }}
+          port: ${{ env.DEPLOY_PORT }}
+          script: |
+            echo "Binary deployed. Start/Restart your app manually for now."
+
