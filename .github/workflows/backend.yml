@@ -20,6 +20,7 @@ jobs:
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
       DEPLOY_PORT: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      DEPLOY_SERVICE_NAME: ${{ secrets.SERVICE_NAME}}
 
     steps:
       - name: Checkout code
@@ -52,5 +53,5 @@ jobs:
           key: ${{ env.DEPLOY_KEY }}
           port: ${{ env.DEPLOY_PORT }}
           script: |
-            echo "Binary deployed. Start/Restart your app manually for now."
+            sudo systemctl restart ${{ env.DEPLOY_SERVICE_NAME }}
 
