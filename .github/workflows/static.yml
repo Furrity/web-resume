@@ -31,7 +31,7 @@ jobs:
           key: ${{ env.DEPLOY_KEY }}
           port: ${{ env.DEPLOY_PORT }}
           source: "static"
-          target: ${{ env.DEPLOY_PATH }}/static
+          target: ${{ env.DEPLOY_PATH }}
 
       - name: SSH to server (stub)
         uses: appleboy/ssh-action@v1
