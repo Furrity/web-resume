@@ -33,7 +33,7 @@ func main() {
 	r.Use(middleware.IncrementStatsMiddleware(myApp.IncrementRequestCount))
 
 	// html router
-	r.HandleFunc("/resume", handlers.ResumeHandler).Methods("GET")
+	r.HandleFunc("/", handlers.ResumeHandler).Methods("GET")
 
 	// api router
 	api := r.PathPrefix("/api").Subrouter()
