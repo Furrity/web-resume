@@ -1,6 +1,10 @@
 package app
 
-import "sync"
+import (
+	"sync"
+
+	"github.com/Furrity/web-resume/internal/database"
+)
 
 type App struct {
 	debug bool
@@ -8,10 +12,12 @@ type App struct {
 		RequestCount int
 		Mu           sync.Mutex
 	}
+	queries *database.Queries
 }
 
 func NewApp(
 	debug bool,
+	queries *database.Queries,
 ) *App {
 	return &App{
 		debug: debug,
@@ -19,6 +25,7 @@ func NewApp(
 			RequestCount int
 			Mu           sync.Mutex
 		}{RequestCount: 0},
+		queries: queries,
 	}
 
 }
