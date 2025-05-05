@@ -20,7 +20,7 @@ type AppConfig struct {
 	Debug        bool   `arg:"--debug,env:DEBUG" help:"Enable debug mode"`
 	Port         int    `arg:"--port,env:PORT" help:"Specify what port to run in"`
 	StaticDir    string `arg:"--static,env:STATIC_DIR" help:"Specify static path"`
-	DatabasePath string `arg:"-db" default:"." help:"Path to the database"`
+	DatabasePath string `arg:"--db" default:"." help:"Path to the database"`
 }
 
 func main() {
