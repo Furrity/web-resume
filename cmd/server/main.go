@@ -11,7 +11,8 @@ import (
 	"github.com/Furrity/web-resume/pkg/handlers"
 	"github.com/Furrity/web-resume/pkg/middleware"
 	"github.com/alexflint/go-arg"
-	"github.com/gorilla/mux"
+	"github.com/go-chi/chi/v5"
+	cmiddleware "github.com/go-chi/chi/v5/middleware"
 
 	_ "modernc.org/sqlite"
 )
@@ -36,20 +37,29 @@ func main() {
 		database.New(db),
 	)
 
-	r := mux.NewRouter()
-
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(args.StaticDir))))
-
-	// middleware
+	r := chi.NewRouter()
+	r.Use(cmiddleware.Logger)
 	r.Use(middleware.IncrementStatsMiddleware(myApp.IncrementRequestCount))
 
+	r.Route("/static", func(r chi.Router) {
+		fs := http.StripPrefix("/static/", http.FileServer(http.Dir(args.StaticDir)))
+		r.Handle("/*", fs)
+	})
+
+	// middleware
+
 	// html router
-	r.HandleFunc("/", handlers.ResumeHandler).Methods("GET")
+	r.Get("/", handlers.ResumeHandler)
 
 	// api router
-	api := r.PathPrefix("/api").Subrouter()
-	api.HandleFunc("/metrics", handlers.MetricsHandler(myApp)).Methods("GET")
+
+	api := chi.NewRouter()
+	r.Mount("/api", api)
+	api.Get("/metrics", handlers.MetricsHandler(myApp))
 
 	port := fmt.Sprintf(":%d", args.Port)
 	log.Fatal(http.ListenAndServe(port, r))
+}
+
+func FileServer(r chi.Router, path string, root http.FileSystem) {
 }

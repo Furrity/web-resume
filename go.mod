@@ -6,7 +6,7 @@ toolchain go1.23.8
 
 require (
 	github.com/alexflint/go-arg v1.5.1
-	github.com/gorilla/mux v1.8.1
+	github.com/go-chi/chi/v5 v5.2.1
 	modernc.org/sqlite v1.37.0
 )
 
