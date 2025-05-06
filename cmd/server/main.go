@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/Furrity/web-resume/internal/database"
+	"github.com/Furrity/web-resume/internal/metrics"
 	"github.com/Furrity/web-resume/pkg/app"
 	"github.com/Furrity/web-resume/pkg/handlers"
 	"github.com/Furrity/web-resume/pkg/middleware"
@@ -38,6 +39,8 @@ func main() {
 	)
 
 	r := chi.NewRouter()
+
+	// middleware
 	r.Use(cmiddleware.Logger)
 	r.Use(middleware.IncrementStatsMiddleware(myApp.IncrementRequestCount))
 
@@ -46,20 +49,15 @@ func main() {
 		r.Handle("/*", fs)
 	})
 
-	// middleware
-
 	// html router
 	r.Get("/", handlers.ResumeHandler)
 
 	// api router
-
 	api := chi.NewRouter()
 	r.Mount("/api", api)
-	api.Get("/metrics", handlers.MetricsHandler(myApp))
+
+	api.Mount("/metrics", metrics.MetricsRouter(myApp))
 
 	port := fmt.Sprintf(":%d", args.Port)
 	log.Fatal(http.ListenAndServe(port, r))
-}
-
-func FileServer(r chi.Router, path string, root http.FileSystem) {
 }
