@@ -29,13 +29,19 @@ type Language struct {
 	Name string
 }
 
+type OpenSource struct {
+	ID       int64
+	TitleKey string
+	DescKey  string
+}
+
 type Position struct {
-	ID          int64
-	CompanyID   int64
-	TitleKey    string
-	StartDate   time.Time
-	EndDate     sql.NullTime
-	Description sql.NullString
+	ID             int64
+	CompanyID      int64
+	TitleKey       string
+	StartDate      time.Time
+	EndDate        sql.NullTime
+	DescriptionKey sql.NullString
 }
 
 type PositionItem struct {
@@ -46,7 +52,7 @@ type PositionItem struct {
 
 type Profile struct {
 	ID       int64
-	Name     string
+	NameKey  string
 	TitleKey string
 	AboutKey string
 	ImageUrl sql.NullString

@@ -12,7 +12,7 @@ type App struct {
 		RequestCount int
 		Mu           sync.Mutex
 	}
-	queries *database.Queries
+	Queries *database.Queries
 }
 
 func NewApp(
@@ -25,7 +25,7 @@ func NewApp(
 			RequestCount int
 			Mu           sync.Mutex
 		}{RequestCount: 0},
-		queries: queries,
+		Queries: queries,
 	}
 
 }

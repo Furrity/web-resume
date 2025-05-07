@@ -8,6 +8,7 @@ import (
 
 	"github.com/Furrity/web-resume/internal/database"
 	"github.com/Furrity/web-resume/internal/metrics"
+	"github.com/Furrity/web-resume/internal/profile"
 	"github.com/Furrity/web-resume/pkg/app"
 	"github.com/Furrity/web-resume/pkg/handlers"
 	"github.com/Furrity/web-resume/pkg/middleware"
@@ -57,6 +58,7 @@ func main() {
 	r.Mount("/api", api)
 
 	api.Mount("/metrics", metrics.MetricsRouter(myApp))
+	api.Mount("/profile", profile.ProfileRouter(myApp))
 
 	port := fmt.Sprintf(":%d", args.Port)
 	log.Fatal(http.ListenAndServe(port, r))

@@ -17,7 +17,7 @@ CREATE TABLE translations (
 
 CREATE TABLE profile (
     id INTEGER PRIMARY KEY CHECK (id = 1),
-    name TEXT NOT NULL,
+    name_key TEXT NOT NULL,
     title_key TEXT NOT NULL,
     about_key TEXT NOT NULL,
     image_url TEXT
@@ -36,7 +36,7 @@ CREATE TABLE positions (
     title_key TEXT NOT NULL,
     start_date DATE NOT NULL,
     end_date DATE,
-    description TEXT,
+    description_key TEXT,
     FOREIGN KEY (company_id) REFERENCES companies(id)
 );
 
@@ -58,6 +58,12 @@ CREATE TABLE contacts (
     type TEXT NOT NULL,
     label_key TEXT NOT NULL,
     value TEXT NOT NULL
+);
+
+CREATE TABLE open_source (
+    id INTEGER PRIMARY KEY,
+    title_key TEXT NOT NULL,
+    desc_key TEXT NOT NULL
 );
 -- +goose StatementEnd
 
