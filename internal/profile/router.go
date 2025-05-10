@@ -9,8 +9,10 @@ import (
 
 func ProfileRouter(a *app.App) http.Handler {
 	r := chi.NewRouter()
-
-	r.Get("/{lang)}", app.Adapter(a, GetProfileHandler))
+	r.Route("/", func(r chi.Router) {
+		r.Get("/", app.Adapter(a, GetProfileHandler))
+		r.Get("/{lang}", app.Adapter(a, GetProfileHandler))
+	})
 
 	return r
 }
