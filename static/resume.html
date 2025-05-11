@@ -10,6 +10,7 @@
     />
     <link href="/static/css/style.css" rel="stylesheet" />
     <script src="/static/js/experience-duration.js" defer> </script>
+    <script src="static/js/copy-email.js" defer></script>
   </head>
   <body>
     <header>
@@ -264,12 +265,16 @@
             </p>
             <p>
               Not-a-course. Overall knowledge of backend and development
-              process.
+              process. Learned: Go, C (memory managment)
             </p>
           </li>
           <li>
             <p class="titles">Stepik. Bioinformatics institute.</p>
             <p>Python programming language.</p>
+          </li>
+          <li>
+            <p class="titles">Skillbox</p>
+            <p>Additional professional education. Learned: Python, Django, SQL.</p>
           </li>
         </ul>
       </section>
@@ -289,7 +294,7 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:davnub@yandex.ru">davnub@yandex.ru</a></p>
+          <p>Email: <a href="#" onclick="copyEmail(event)">davnub@yandex.ru</a></p>
         <p>
           Telegram:
           <a href="https://t.me/david_gogievich" target="_blank"
@@ -316,5 +321,9 @@
         &copy; 2025 David Naneishvili. All rights might be (i dunno) reserved.
       </p>
     </footer>
+    <div id="copy-toast">
+    Email copied to clipboard
+</div>
+
   </body>
 </html>
