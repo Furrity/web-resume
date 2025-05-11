@@ -32,14 +32,3 @@ jobs:
           port: ${{ env.DEPLOY_PORT }}
           source: "static"
           target: ${{ env.DEPLOY_PATH }}
-
-      - name: SSH to server (stub)
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ env.DEPLOY_HOST }}
-          username: ${{ env.DEPLOY_USER }}
-          key: ${{ env.DEPLOY_KEY }}
-          port: ${{ env.DEPLOY_PORT }}
-          script: |
-            echo "Static files deployed. No restart needed."
-
